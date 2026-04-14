@@ -7,7 +7,12 @@ function combineUsers(...args) {
     combinedObject.users = [...combinedObject.users, ...args[i]];
   }
 
-  combinedObject.merge_date = new Date().toLocaleDateString('en-US');
+  const today = new Date();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+  const year = today.getFullYear();
+
+  combinedObject.merge_date = `${month}/${day}/${year}`;
 
   return combinedObject;
 }
