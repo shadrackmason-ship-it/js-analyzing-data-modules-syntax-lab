@@ -1,20 +1,10 @@
 function combineUsers(...args) {
-  const combinedObject = {
-    users: []
+  const users = args.flat();
+
+  return {
+    users,
+    merge_date: new Date().toISOString().split('T')[0]
   };
-
-  for (let i = 0; i < args.length; i++) {
-    combinedObject.users = [...combinedObject.users, ...args[i]];
-  }
-
-  const today = new Date();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-  const year = today.getFullYear();
-
-  combinedObject.merge_date = `${month}/${day}/${year}`;
-
-  return combinedObject;
 }
 
 module.exports = combineUsers;
